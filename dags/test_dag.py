@@ -1,5 +1,5 @@
 from airflow import DAG
-from airflow.operators.bash_operator import pythonOperator
+from airflow.operators.python import PythonOperator
 
 
 default_args = {
