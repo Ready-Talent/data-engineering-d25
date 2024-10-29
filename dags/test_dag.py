@@ -22,13 +22,13 @@ def print_two():
     return "function number 2"
 
 
-task_number_one = pythonOperator(
+task_number_one = PythonOperator(
     task_id = "task_1",
     python_callable = print_one,
     dag = dag1   
 )
 
-task_number_two = pythonOperator(
+task_number_two = PythonOperator(
     task_id = "task_2",
     python_callable = print_two,
     dag = dag1   
