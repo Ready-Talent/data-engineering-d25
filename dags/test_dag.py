@@ -14,31 +14,29 @@ dag1 = DAG(
     schedule_interval=None
 )
 
-def print_one():
-    return "hello world"
+def print_text():
+    return "Hello Ready"
 
 
-def print_two():
-    return "function number 2"
+
+def sum(**kwargs):
+    x = kwargs['dag_run'].conf.get('x', 0)
+    y = kwargs['dag_run'].conf.get('y', 0)
+    z = x + y
+    print(f"The sum of {x} and {y} is {z}")
+    return z
 
 
 task_number_one = PythonOperator(
     task_id = "task_1",
-    python_callable = print_one,
+    python_callable = print_text,
     dag = dag1   
 )
 
 task_number_two = PythonOperator(
     task_id = "task_2",
-    python_callable = print_two,
+    python_callable = sum,
     dag = dag1   
 )
 
-
 task_number_one >> task_number_two
-
-
-
-
-
-
