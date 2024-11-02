@@ -36,7 +36,7 @@ with DAG(
             postgres_conn_id=postgres_conn_id,
             sql=f'SELECT * FROM {postgres_table}',
             bucket=gcs_bucket,
-            filename=f'ziad/{postgres_table}_*.json',
+            filename=f'{postgres_table}_*.json',
             export_format='json'
         )
 
@@ -44,7 +44,7 @@ with DAG(
         load_to_bigquery = GCSToBigQueryOperator(
             task_id=f'load_{postgres_table}_to_bigquery',
             bucket=gcs_bucket,
-            source_objects=[f'ziad/{postgres_table}_*.json'],
+            source_objects=[f'{postgres_table}_*.json'],
             destination_project_dataset_table=f'{project_id}.{dataset_id}.{bigquery_table}',
             source_format='NEWLINE_DELIMITED_JSON',
             write_disposition='WRITE_TRUNCATE',
