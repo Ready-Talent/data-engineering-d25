@@ -44,7 +44,7 @@ task_number_two = PythonOperator(
 task_number_three = PythonOperator(
     task_id = "Third_task",
     python_callable = print_execution_time,
-    op_kwargs = {"date": execution_date},
+    op_kwargs = {"variable": execution_date},
     dag = dag1 
 )
 
