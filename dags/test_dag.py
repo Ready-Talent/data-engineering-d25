@@ -19,14 +19,14 @@ def print_one():
     return "hello world"
 
 
-def print_two(x,y):
-    return x + y
+def print_two(a,b):
+    return a + b
 
 
 def print_three(date):
     return date
 
-execution_date = '{{execution_dates}}'
+execution_date = '{{execution_date}}'
 
 task_number_one = PythonOperator(
     task_id = "task_1",
@@ -37,7 +37,7 @@ task_number_one = PythonOperator(
 task_number_two = PythonOperator(
     task_id = "task_2",
     python_callable = print_two,
-    op_kwargs = {"x":1,"y":2},
+    op_kwargs = {"a":1,"b":2},
     dag = dag1   
 )
 
