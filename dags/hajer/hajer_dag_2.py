@@ -15,7 +15,6 @@ dag1 = DAG(
     schedule_interval='@daily'
 )
 
-##execution_date = '{{ execution_date }}'
 
 postgres_to_gcs_1 = PostgresToGCSOperator(
     task_id="export_postgres_to_gcs",
@@ -33,7 +32,7 @@ gcs_to_bigquery_2 = GCSToBigQueryOperator(
     source_format="CSV",  # Specify the source format
     skip_leading_rows=1,  # Skip header row if present
     autodetect=True,  # Enable schema auto-detection
-    write_disposition="WRITE_TRUNCATE"  # Overwrite the table
+    create_disposition="CREATE_IF_NEEDED"
 )
 
 postgres_to_gcs_1 >> gcs_to_bigquery_2
