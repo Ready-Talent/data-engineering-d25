@@ -18,7 +18,7 @@ def print_one():
     return "hello world"
 
 
-def print_two():
+def print_two(variable1,variable2):
     return "function number 2"
 
 
