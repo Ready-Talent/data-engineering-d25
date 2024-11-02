@@ -35,12 +35,10 @@ with DAG(
             task_id='load_to_bq',
             bucket='ready-platform-3',
             source_objects=['dag/fatima/orders_transfer_fa.csv'],
+            source_format='CSV',
             destination_dataset_table='airflow_transfers.orders_transfer_fa',
             write_disposition="WRITE_TRUNCATE",
-            create_disposition="CREATE_IF_NEEDED",
-            source_format='CSV',
-            google_cloud_storage_conn_id='google_cloud_storage_default',
-            bigquery_conn_id='google_cloud_default'
+            create_disposition="CREATE_IF_NEEDED"
         )
 
     extract_to_gcs >> load_to_bq
