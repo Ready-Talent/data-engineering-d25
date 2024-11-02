@@ -16,7 +16,7 @@ dag1 = DAG(
 )
 
 def print_one():
-    return datetime.now()
+    return print(datetime.now())
 
 
 def print_two(a,b):
