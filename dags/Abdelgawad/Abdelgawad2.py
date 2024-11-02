@@ -8,7 +8,7 @@ default_args = {
 }
 
 dag = DAG(
-    'transfer_dag',
+    'transfer_dag_abdelgawad',
     default_args=default_args,
     description='Creating a transfer DAG',
     schedule_interval=None,
