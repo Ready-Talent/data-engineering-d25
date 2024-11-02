@@ -12,6 +12,7 @@ dag = DAG(
     default_args=default_args,
     description='Creating a transfer DAG',
     schedule_interval=None,
+    start_date=(2024, 1, 1)
     
 )
 
@@ -43,6 +44,3 @@ load_csv = GCSToBigQueryOperator(
 
 # Set task dependencies
 postgres_to_gcs >> load_csv
-
-
-##
