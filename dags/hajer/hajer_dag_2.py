@@ -13,7 +13,8 @@ dag1 = DAG(
     default_args=default_args,
     start_date=datetime(2024, 4, 20),
     description='creating transfer dag',
-    schedule_interval='@daily'
+    schedule_interval=None,
+    catchup=False,
 )
 
 
