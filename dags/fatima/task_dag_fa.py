@@ -20,14 +20,15 @@ with DAG(
             postgres_conn_id='postgres_conn',
             sql="SELECT * FROM orders",
             bucket= "ready-platform-3",
-            filename= "orders_transfer_fa.csv"
+            filename= "fatima/orders_transfer_fa.csv",
+            export = "csv"
         )
                 
 
     load_to_bq = GoogleCloudStorageToBigQueryOperator(
             task_id='load_to_bq',
             bucket='ready-platform-3',
-            source_objects=['orders_transfer_fa.csv'],
+            source_objects=['fatima/orders_transfer_fa.csv'],
             destination_dataset_table='ready-de-25.airflow_transfers',
             source_format='CSV',
             google_cloud_storage_conn_id='google_cloud_storage_default',
