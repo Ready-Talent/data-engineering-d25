@@ -23,6 +23,7 @@ postgres_to_gcs_1 = PostgresToGCSOperator(
     bucket="ready-d25-postgres-to-gcs/hajer",
     filename="orders.csv",
     export_format="csv",
+    dag = dag1   
 )
 
 gcs_to_bigquery_2 = GCSToBigQueryOperator(
@@ -34,6 +35,7 @@ gcs_to_bigquery_2 = GCSToBigQueryOperator(
     skip_leading_rows=1,  # Skip header row if present
     autodetect=True,  # Enable schema auto-detection
     create_disposition="CREATE_IF_NEEDED"
+    dag = dag1   
 )
 
 postgres_to_gcs_1 >> gcs_to_bigquery_2
