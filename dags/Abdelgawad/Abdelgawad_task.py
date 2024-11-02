@@ -12,8 +12,6 @@ dag = DAG(
     default_args=default_args,
     description='Creating a transfer DAG',
     schedule_interval=None,
-    start_date=(2024, 1, 1)
-    
 )
 
 postgres_to_gcs = PostgresToGCSOperator(
