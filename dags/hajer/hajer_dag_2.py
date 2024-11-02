@@ -11,6 +11,7 @@ default_args = {
 dag1 = DAG(
     'postgres_to_bigquery_hajer',
     default_args=default_args,
+    start_date=datetime(2024, 4, 20),
     description='creating transfer dag',
     schedule_interval='@daily'
 )
