@@ -21,6 +21,7 @@ dag1 = DAG(
 postgres_to_gcs_1 = PostgresToGCSOperator(
     task_id="export_postgres_to_gcs",
     sql="select * from orders",
+    postgres_conn_id="postgres_conn",
     bucket="ready-d25-postgres-to-gcs/hajer",
     filename="orders.csv",
     export_format="csv",
