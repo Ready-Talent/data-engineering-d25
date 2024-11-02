@@ -36,7 +36,7 @@ with DAG(
             bucket='ready-platform-3',
             source_objects=['dag/fatima/orders_transfer_fa.csv'],
             source_format='CSV',
-            destination_project_dataset_table='airflow_transfers.orders_transfer_fa',
+            destination_project_dataset_table='ready-de-25.airflow_transfers.orders_transfer_fa',
             write_disposition="WRITE_TRUNCATE",
             create_disposition="CREATE_IF_NEEDED"
         )
