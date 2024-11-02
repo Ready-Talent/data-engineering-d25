@@ -36,7 +36,7 @@ with DAG(
         task_id='trn_gcs_to_bq',
         bucket=bucket_name,               
         source_objects=file_name, 
-        destination_project_dataset_table=f'{project_id},{dataset_id}.{table_name}_menna', 
+        destination_project_dataset_table=f'{project_id}.{dataset_id}.{table_name}_menna', 
         create_disposition='CREATE_IF_NEEDED',
         autodetect= True,
         source_format='csv',
