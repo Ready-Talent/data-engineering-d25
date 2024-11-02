@@ -34,8 +34,8 @@ gcs_to_bigquery_2 = GCSToBigQueryOperator(
     source_format="CSV",  # Specify the source format
     skip_leading_rows=1,  # Skip header row if present
     autodetect=True,  # Enable schema auto-detection
-    create_disposition="CREATE_IF_NEEDED"
-    dag = dag1   
+    create_disposition="CREATE_IF_NEEDED",
+    dag = dag1
 )
 
 postgres_to_gcs_1 >> gcs_to_bigquery_2
