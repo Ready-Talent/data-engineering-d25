@@ -23,7 +23,8 @@ transfer_from_postgres_to_gcs = PostgresToGCSOperator(
         sql="SELECT * FROM orders",
         bucket="ready-d25-postgres-to-gcs",
         filename="amira/orders_amira.json",
-        export_format="json"
+        export_format="json",
+        dag=dag1
 )
 load_from_gcs_to_bigquery = GCSToBigQueryOperator(
         task_id='load_gcs_to_bigquery',
@@ -32,6 +33,7 @@ load_from_gcs_to_bigquery = GCSToBigQueryOperator(
         destination_project_dataset_table='ready-de-25.airflow_transfers.orders_amira',
         source_format='NEWLINE_DELIMITED_JSON',
         write_disposition='WRITE_TRUNCATE', 
+        dag=dag1
 )
 
 transfer_from_postgres_to_gcs >> load_from_gcs_to_bigquery
