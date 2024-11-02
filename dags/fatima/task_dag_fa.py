@@ -26,7 +26,7 @@ with DAG(
 
     load_to_bq = GoogleCloudStorageToBigQueryOperator(
             task_id='load_to_bq',
-            bucket='your_gcs_bucket',
+            bucket='ready-platform-3',
             source_objects=['orders_transfer_fa.csv'],
             destination_dataset_table='ready-de-25.airflow_transfers',
             source_format='CSV',
