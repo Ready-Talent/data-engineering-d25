@@ -1,8 +1,8 @@
 from airflow import DAG
-from airflow.operators.postgres_to_gcs import PostgresToGoogleCloudStorageOperator
+from airflow.operators.python import PythonOperator
+from airflow.providers.postgres.operators.postgres_to_gcs import PostgresToGoogleCloudStorageOperator
 from airflow.providers.google.cloud.operators.gcs_to_bq import GoogleCloudStorageToBigQueryOperator
 
-from pandas import DataFrame
 
 default_args = {
     'retries': 1
