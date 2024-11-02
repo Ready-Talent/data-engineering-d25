@@ -16,7 +16,7 @@ dag1 = DAG(
 )
 
 def print_one():
-    return "hello world"
+    return print(datetime.now())
 
 
 def print_two(a,b):
@@ -25,6 +25,8 @@ def print_two(a,b):
 
 def print_three(date):
     return date
+
+
 
 execution_date = '{{execution_date}}'
 
