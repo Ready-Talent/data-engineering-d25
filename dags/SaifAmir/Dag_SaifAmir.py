@@ -1,11 +1,11 @@
 from airflow import DAG
 from airflow.providers.google.cloud.transfers.postgres_to_gcs import PostgresToGCSOperator
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
-from airflow.utils.dates import days_ago
+
 
 # Define the DAG
 with DAG(
-    dag_id='postgres_to_bigquery_via_gcs',
+    dag_id='postgres_to_bigquery_via_gcs_saif_amir',
     schedule_interval=None,
     description ='Loading Data from postgres to bigquery via gcs'
 ) as dag:
@@ -25,7 +25,7 @@ with DAG(
         task_id='load_gcs_to_bigquery',
         bucket='ready-d25-postgres-to-gcs',  # Your GCS bucket name
         source_objects=['seif/orders.csv'],  # GCS object path
-        destination_project_dataset_table='ready-de-25.airflow_transfers.orders',  # BigQuery table
+        destination_project_dataset_table='ready-de-25.airflow_transfers.orders_SaifAmir',  # BigQuery table
         source_format='CSV',  # Format of the data in GCS
         skip_leading_rows=1,  # Skip header row if necessary
         autodetect=True,  # Automatically detect schema
