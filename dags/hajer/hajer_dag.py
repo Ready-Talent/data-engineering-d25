@@ -8,7 +8,7 @@ default_args = {
 
 
 dag1 = DAG(
-    'hajer_dag_1',
+    dag_id ='hajer_dag_1',
     default_args=default_args,
     start_date=datetime(2024, 4, 20),
     description='creating assignment 1 DAG',
