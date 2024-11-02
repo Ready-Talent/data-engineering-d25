@@ -15,7 +15,7 @@ with DAG(
     schedule_interval=None,
     start_date=days_ago(1),
     tags=['data-transfer', 'postgres', 'bigquery', 'gcs']
-) as dag:
+) as dag_ziad:
 
     # Configuration
     postgres_conn_id = 'postgres_conn'              # PostgreSQL connection ID
