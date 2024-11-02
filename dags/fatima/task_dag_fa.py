@@ -1,4 +1,5 @@
 from airflow import DAG
+from datetime import datetime
 from airflow.operators.python import PythonOperator
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import (
     GCSToBigQueryOperator,
@@ -13,7 +14,7 @@ default_args = {
 }
 
 with DAG(
-    'transfer_dag_f',
+    'transfer_dag_fatima',
     default_args=default_args,
     description= 'postgres_to_bigquery_transfer',
     start_date=datetime(2024, 4, 20),
