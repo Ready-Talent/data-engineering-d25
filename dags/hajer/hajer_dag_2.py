@@ -9,9 +9,9 @@ default_args = {
 
 
 dag1 = DAG(
-    dag_id = 'postgres_to_bigquery_hajer',
+    'postgres_to_bigquery_hajer',
     default_args=default_args,
-    start_date=datetime(2024, 4, 20),
+    start_date=datetime(2024, 11, 1),
     description='creating transfer dag',
     schedule_interval=None,
     catchup=False,
@@ -22,16 +22,16 @@ postgres_to_gcs_1 = PostgresToGCSOperator(
     task_id="export_postgres_to_gcs",
     sql="select * from orders",
     postgres_conn_id="postgres_conn",
-    bucket="ready-d25-postgres-to-gcs/hajer",
-    filename="orders.csv",
+    bucket="ready-d25-postgres-to-gcs",
+    filename="hajer/orders.csv",
     export_format="csv",
     dag = dag1   
 )
 
 gcs_to_bigquery_2 = GCSToBigQueryOperator(
     task_id="load_csv_to_bigquery",
-    bucket="ready-d25-postgres-to-gcs/hajer",  # Same GCS bucket name
-    source_objects=["orders.csv"],  # List of files to load
+    bucket="ready-d25-postgres-to-gcs",  # Same GCS bucket name
+    source_objects=["hajer/orders.csv"],  # List of files to load
     destination_project_dataset_table="ready-de-25.airflow_transfers.orders_hajer",  # BigQuery destination
     source_format="CSV",  # Specify the source format
     skip_leading_rows=1,  # Skip header row if present
