@@ -16,6 +16,7 @@ with DAG(
     'transfer_dag_f',
     default_args=default_args,
     description= 'postgres_to_bigquery_transfer',
+    start_date=datetime(2024, 4, 20),
     schedule_interval=None
 ) as transfer_dag_fatima:
     
@@ -29,7 +30,7 @@ with DAG(
         )
                 
 
-    load_to_bq = GoogleCloudStorageToBigQueryOperator(
+    load_to_bq = GCSToBigQueryOperator(
             task_id='load_to_bq',
             bucket='ready-platform-3',
             source_objects=['dag/fatima/orders_transfer_fa.csv'],
