@@ -27,7 +27,7 @@ with DAG(
         postgres_conn_id=postgres_conn_id,
         sql=f'select * from {table_name};',
         bucket=bucket_name,
-        filename=file_name
+        filename=file_name,
         export_format='csv',
     )
     
