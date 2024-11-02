@@ -43,6 +43,3 @@ load_csv = GCSToBigQueryOperator(
 
 # Set task dependencies
 postgres_to_gcs >> load_csv
-
-
-##
