@@ -6,8 +6,6 @@ from airflow.providers.google.cloud.transfers.gcs_to_bigquery import (
 from airflow.providers.google.cloud.transfers.postgres_to_gcs import (
     PostgresToGCSOperator,
 )
-#from airflow.providers.postgres.operators.postgres_to_gcs import PostgresToGoogleCloudStorageOperator
-#from airflow.providers.google.cloud.operators.gcs_to_bq import GoogleCloudStorageToBigQueryOperator
 
 
 default_args = {
