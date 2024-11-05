@@ -27,11 +27,11 @@
     {
       "name": "created_at",
       "mode": "",
-      "type": "DATE"
+      "type": "DATETIME"
     },
     {
       "name": "updated_at",
       "mode": "",
-      "type": "DATE"
+      "type": "DATETIME"
     }
   ]
