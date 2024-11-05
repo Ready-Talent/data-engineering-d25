@@ -26,7 +26,6 @@ with DAG(
         {"name": "email", "type": "STRING", "mode": "NULLABLE"},
         {"name": "phone", "type": "STRING", "mode": "NULLABLE"},
         {"name": "address", "type": "STRING", "mode": "NULLABLE"},
-        {"name": "created_at_timestamp", "type": "TIMESTAMP", "mode": "NULLABLE"},
     ]
 
     # Task 1: Create an empty BigQuery table with the specified schema
