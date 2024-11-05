@@ -7,8 +7,8 @@ default_args = {
 }
 
 with DAG(
-    'postgres_to_bq-hajer',
-    describtion='creating transfer dag',
+    'dim_customer_hajer',
+    describtion='creating dim_customer dag',
     default_args=default_args,
     schedule_interval=None,
 ) as dag:
