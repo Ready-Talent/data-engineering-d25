@@ -1,6 +1,8 @@
 from airflow import DAG
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateEmptyTableOperator
 from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
+from datetime import datetime
+
 
 default_args = {
     'retries': 1
@@ -8,9 +10,10 @@ default_args = {
 
 with DAG(
     'dim_customer_hajer',
-    describtion='creating dim_customer dag',
+    description='creating dim_customer dag',
     default_args=default_args,
     schedule_interval=None,
+    start_date=datetime(2024, 1, 1),
 ) as dag:
     
     create_dim_customers = BigQueryCreateEmptyTableOperator(
@@ -20,37 +23,37 @@ with DAG(
         schema_fields=[
             {
                 "name": "customer_id",
-                "mode": "",
+                "mode": "NULLABLE",
                 "type": "INTEGER"
             },
             {
                 "name": "name",
-                "mode": "",
+                "mode": "NULLABLE",
                 "type": "STRING"
             },
             {
                 "name": "email",
-                "mode": "",
+                "mode": "NULLABLE",
                 "type": "STRING"
             },
             {
                 "name": "address",
-                "mode": "",
+                "mode": "NULLABLE",
                 "type": "STRING"
             },
             {
                 "name": "phone",
-                "mode": "",
+                "mode": "NULLABLE",
                 "type": "STRING"
             },
             {
                 "name": "created_at",
-                "mode": "",
+                "mode": "NULLABLE",
                 "type": "DATE"
             },
             {
                 "name": "updated_at",
-                "mode": "",
+                "mode": "NULLABLE",
                 "type": "DATE"
             }
             ]
@@ -62,7 +65,7 @@ with DAG(
         task_id='insert_query_job',
         configuration={
             "query": {
-                "query": 'insert into ready-de-25.airflow_star_schema.dim_customers_hajer as (select * from ready-de-25.ecommerce.dim_customer)',
+                "query": 'insert into ready-de-25.airflow_star_schema.dim_customers_hajer select * from ready-de-25.ecommerce.dim_customer',
                 "useLegacySql": False,
             }
         }
