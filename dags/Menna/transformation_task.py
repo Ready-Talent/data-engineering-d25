@@ -8,7 +8,10 @@ json_file_path = Path(r'E:\ready\airflow_task\data-engineering-d25\dags\Menna\cu
 
 parent_directory = json_file_path.parent
 schema_file_path = parent_directory / json_file_path.name
-schema_fields = os.open(schema_file_path)
+
+with open(schema_file_path) as schema_file:
+    s|chema_fields = json.load(schema_file)
+
 
 table_id = 'customers'
 project_id = 'ready-de-25'
