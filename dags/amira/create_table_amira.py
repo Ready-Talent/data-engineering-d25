@@ -42,8 +42,8 @@ load_dim_customer_data = BigQueryInsertJobOperator(
                         email,
                         address,
                         phone,
-                        created_at,
-                        updated_at
+                        created_at_timestamp,
+                        updated_at_timestamp
                     FROM `ready-de-25.ecommerce.customers`
                 """,
                 "useLegacySql": False,
