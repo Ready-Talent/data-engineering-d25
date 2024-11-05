@@ -7,6 +7,7 @@ from airflow.operators.bash import BashOperator
 from airflow.utils.dates import days_ago
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateEmptyTableOperator
 
+
 DATASET_ID = "airflow_star_schema"
 
 default_args = {
@@ -31,4 +32,7 @@ Task1 = BigQueryCreateEmptyTableOperator(
         {"name": "Email", "type": "STRING", "mode": "NULLABLE"},
         {"name": "Address", "type": "STRING", "mode": "NULLABLE"},
     ],
+    dag = dag
 )
+
+Task1
