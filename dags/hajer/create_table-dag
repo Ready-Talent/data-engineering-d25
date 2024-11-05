@@ -68,4 +68,4 @@ with DAG(
         }
     )
 
-    create_dim_customers >> populate_dim_customerss
+    create_dim_customers >> populate_dim_customers
