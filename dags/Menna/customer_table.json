@@ -1,0 +1,44 @@
+[
+    {
+      "name": "customer_id",
+      "mode": "NULLABLE",
+      "type": "INTEGER",
+      "fields": []
+    },
+    {
+      "name": "name",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "fields": []
+    },
+    {
+      "name": "email",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "fields": []
+    },
+    {
+      "name": "address",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "fields": []
+    },
+    {
+      "name": "phone",
+      "mode": "NULLABLE",
+      "type": "STRING",
+      "fields": []
+    },
+    {
+      "name": "created_at_timestamp",
+      "mode": "NULLABLE",
+      "type": "DATETIME",
+      "fields": []
+    },
+    {
+      "name": "updated_at_timestamp",
+      "mode": "NULLABLE",
+      "type": "DATETIME",
+      "fields": []
+    }
+  ]
