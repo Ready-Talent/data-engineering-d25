@@ -1,0 +1,37 @@
+[
+    {
+      "name": "customer_id",
+      "mode": "",
+      "type": "INTEGER"
+    },
+    {
+      "name": "name",
+      "mode": "",
+      "type": "STRING"
+    },
+    {
+      "name": "email",
+      "mode": "",
+      "type": "STRING"
+    },
+    {
+      "name": "address",
+      "mode": "",
+      "type": "STRING"
+    },
+    {
+      "name": "phone",
+      "mode": "",
+      "type": "STRING"
+    },
+    {
+      "name": "created_at",
+      "mode": "",
+      "type": "DATE"
+    },
+    {
+      "name": "updated_at",
+      "mode": "",
+      "type": "DATE"
+    }
+  ]

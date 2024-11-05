@@ -32,7 +32,7 @@ load_from_gcs_to_bigquery = GCSToBigQueryOperator(
         source_objects=['amira/orders_amira.json'],
         destination_project_dataset_table='ready-de-25.airflow_transfers.orders_amira',
         source_format='NEWLINE_DELIMITED_JSON',
-        write_disposition='WRITE_TRUNCATE', 
+        write_disposition='WRITE_TRUNCATE',
         dag=dag1
 )
 
