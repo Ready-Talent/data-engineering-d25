@@ -57,4 +57,4 @@ Task2 = BigQueryInsertJobOperator(
 )
 
 
-Task1 > Task2
+Task1 >> Task2
