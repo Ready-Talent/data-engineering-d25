@@ -21,7 +21,7 @@ with DAG(
     dataset_id = 'star_schema' 
     table_id = 'ziad_dim_customer' 
     schema = [  
-        {"name": "customer_id", "type": "STRING", "mode": "REQUIRED"},
+        {"name": "customer_id", "type": "INTEGER", "mode": "REQUIRED"},
         {"name": "name", "type": "STRING", "mode": "NULLABLE"},
         {"name": "email", "type": "STRING", "mode": "NULLABLE"},
         {"name": "phone", "type": "STRING", "mode": "NULLABLE"},
