@@ -46,7 +46,7 @@ load_data = BigQueryInsertJobOperator(
                 FROM `ready-de-25.ecommerce.customers`
             """,
             "useLegacySql": False, 
-            "writeDisposition": "WRITE_APPEND",  
+             
         }
     },
     dag=dag,
