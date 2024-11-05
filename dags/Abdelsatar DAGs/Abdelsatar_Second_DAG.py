@@ -6,6 +6,7 @@ from airflow.providers.postgres.operators.postgres import PostgresOperator
 from airflow.operators.bash import BashOperator
 from airflow.utils.dates import days_ago
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateEmptyTableOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
 
 
 DATASET_ID = "airflow_star_schema"
@@ -35,4 +36,25 @@ Task1 = BigQueryCreateEmptyTableOperator(
     dag = dag
 )
 
-Task1
+Task2 = BigQueryInsertJobOperator(
+    task_id="inserting",
+    configuration={
+        "query": {
+            "query": """
+                INSERT INTO `ready-de-25.airflow_star_schema.Dim_Cust_Abdelsatar` (customer_id, name, Email, Address)
+                VALUES
+                    (1, 'John Doe', 'john.doe@example.com', '123 Main St, Springfield'),
+                    (2, 'Jane Smith', 'jane.smith@example.com', '456 Oak St, Springfield'),
+                    (3, 'Alice Johnson', 'alice.johnson@example.com', '789 Pine St, Springfield'),
+                    (4, 'Bob Brown', 'bob.brown@example.com', '101 Maple St, Springfield'),
+                    (5, 'Charlie White', 'charlie.white@example.com', '202 Birch St, Springfield')
+            """,
+            "useLegacySql": False,
+            "priority": "BATCH",
+        }
+    },
+    dag=dag
+)
+
+
+Task1 > Task2
