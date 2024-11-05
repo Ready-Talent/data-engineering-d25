@@ -4,10 +4,9 @@ import json
 from pathlib import Path
 import os
 
-json_file_path = Path("E:/ready/airflow_task/data-engineering-d25/dags/Menna/customer_table.json")
-
-parent_directory = json_file_path.parent
-schema_file_path = parent_directory / json_file_path.name
+current_file_path = Path(__file__).resolve()
+parent_directory = current_file_path.parent
+schema_file_path = parent_directory / "customer_table.json"
 
 with open(schema_file_path) as schema_file:
     schema_fields = json.load(schema_file)
