@@ -38,10 +38,14 @@ with DAG(
         python_callable=create_table
     )
     
+    sql="""
+        INSERT INTO `ready-de-25.airflow_star_schema.customers_fatima`
+        SELECT * FROM `ready-de-25.ecommerce.customers`
+    """
 
     insert_data_task = BigQueryInsertJobOperator(
         task_id='insert_data',
-        sql= "INSERT INTO ready-de-25.airflow_star_schema.customers_fatima SELECT * FROM ready-de-25.ecommerce.customers",
+        sql= sql,
         destination_dataset_table='ready-de-25.airflow_star_schema.dim_customer_fatima',
         configuration=bigquery.LoadJobConfig(
         source_format=bigquery.SourceFormat.CSV)
