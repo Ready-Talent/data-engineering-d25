@@ -49,8 +49,7 @@ with DAG(
                         name,
                         email,
                         phone,
-                        address,
-                        created_at_timestamp
+                        address
                     FROM `{project_id}.ecommerce.customers`
                 """,
                 "useLegacySql": False,
