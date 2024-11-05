@@ -38,9 +38,7 @@ with DAG(
         python_callable=create_table
     )
     
-    sql="""
-        INSERT INTO `ready-de-25.airflow_star_schema.customers_fatima` FROM `ready-de-25.ecommerce.customers`
-    """
+    sql="""INSERT INTO `ready-de-25.airflow_star_schema.customers_fatima` FROM `ready-de-25.ecommerce.customers`"""
 
     insert_data_task = BigQueryInsertJobOperator(
         task_id='insert_data',
