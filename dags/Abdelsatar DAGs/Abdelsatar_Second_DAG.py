@@ -7,6 +7,8 @@ from airflow.operators.bash import BashOperator
 from airflow.utils.dates import days_ago
 from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateEmptyTableOperator
 
+DATASET_ID = "airflow_star_schema"
+
 default_args = {
     'retries': 1,
 }
@@ -21,7 +23,7 @@ dag = DAG(
 
 Task1 = BigQueryCreateEmptyTableOperator(
     task_id="create_table",
-    dataset_id=airflow_star_schema,
+    dataset_id=DATASET_ID,
     table_id="Dim_Cust_Abdelsatar",
     schema_fields=[
         {"name": "customer_id", "type": "INTEGER", "mode": "REQUIRED"},
