@@ -11,7 +11,7 @@ from airflow.operators.dummy import DummyOperator
 
 # Define the DAG
 with DAG(
-    dag_id='dim_customer_dag',
+    dag_id='dim_customer_dag_SaifAmir',
     description='Creating a dim customer table and filling it with data' ,
     schedule_interval=None,
     catchup=False,
