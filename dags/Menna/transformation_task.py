@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 import os
 
-json_file_path = Path(r'E:\ready\airflow_task\data-engineering-d25\dags\Menna\customer_table.json')
+json_file_path = Path("E:/ready/airflow_task/data-engineering-d25/dags/Menna/customer_table.json")
 
 parent_directory = json_file_path.parent
 schema_file_path = parent_directory / json_file_path.name
