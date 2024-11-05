@@ -10,7 +10,7 @@ parent_directory = json_file_path.parent
 schema_file_path = parent_directory / json_file_path.name
 
 with open(schema_file_path) as schema_file:
-    s|chema_fields = json.load(schema_file)
+    schema_fields = json.load(schema_file)
 
 
 table_id = 'customers'
