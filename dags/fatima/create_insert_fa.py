@@ -18,13 +18,14 @@ with DAG(
 
 
         # Get the current working directory
-        current_dir = os.getcwd()
+        current_file_path = os.path,abspath(__file__)
+        parent_directory = os.path.dirname(current_file_path)
 
         # Join the current directory with a filename to create a full path
-        file_path = os.path.join(current_dir, "your_schema.json")
+        json_directory = os.path.join(parent_directory,"your_schema.json")
 
         # Load the JSON schema from a file or string
-        with open(file_path, 'r') as f:
+        with open(json_directory, 'r') as f:
             schema_json = json.load(f)
 
         table = bigquery.Table(table_ref, schema=schema_json)
