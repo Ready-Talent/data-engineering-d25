@@ -43,7 +43,7 @@ with DAG(
             INSERT INTO `airflow_star_schema.dim_customer_fatima`
             SELECT * FROM `ecommerce.customers`
         """,
-        destination_dataset_table='airflow_star_schema.dim_customer_fatima',
+        destination_dataset_table='ready-de-25.airflow_star_schema.dim_customer_fatima',
     )
 
     create_table_task >> insert_data_task
