@@ -32,6 +32,9 @@ Task1 = BigQueryCreateEmptyTableOperator(
         {"name": "name", "type": "STRING", "mode": "NULLABLE"},
         {"name": "Email", "type": "STRING", "mode": "NULLABLE"},
         {"name": "Address", "type": "STRING", "mode": "NULLABLE"},
+        {"name": "phone", "type": "STRING", "mode": "NULLABLE"},
+        {"name": "created_at", "type": "DATE", "mode": "NULLABLE"},
+        {"name": "updated_at", "type": "DATE", "mode": "NULLABLE"},
     ],
     dag = dag
 )
@@ -41,13 +44,10 @@ Task2 = BigQueryInsertJobOperator(
     configuration={
         "query": {
             "query": """
-                INSERT INTO `ready-de-25.airflow_star_schema.Dim_Cust_Abdelsatar` (customer_id, name, Email, Address)
-                VALUES
-                    (1, 'John Doe', 'john.doe@example.com', '123 Main St, Springfield'),
-                    (2, 'Jane Smith', 'jane.smith@example.com', '456 Oak St, Springfield'),
-                    (3, 'Alice Johnson', 'alice.johnson@example.com', '789 Pine St, Springfield'),
-                    (4, 'Bob Brown', 'bob.brown@example.com', '101 Maple St, Springfield'),
-                    (5, 'Charlie White', 'charlie.white@example.com', '202 Birch St, Springfield')
+                INSERT INTO `ready-de-25.airflow_star_schema.Dim_Cust_Abdelsatar` (customer_id, name, Email, Address,phone,created_at,updated_at)
+                Select
+                customer_id, name, Email, Address,phone,created_at,updated_at
+                FROM `ready-de-25.ecommerce.customers`
             """,
             "useLegacySql": False,
             "priority": "BATCH",
