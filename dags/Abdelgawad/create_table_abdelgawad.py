@@ -76,6 +76,7 @@ load_data = BigQueryInsertJobOperator(
             "writeDisposition": "WRITE_APPEND",  
         }
     },
+    dag=dag
 )
 
 
