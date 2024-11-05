@@ -1,0 +1,51 @@
+[
+    {
+      "name": "customer_id",
+      "mode": "",
+      "type": "INTEGER",
+      "description": "",
+      "fields": []
+    },
+    {
+      "name": "name",
+      "mode": "",
+      "type": "STRING",
+      "description": "",
+      "fields": []
+    },
+    {
+      "name": "email",
+      "mode": "",
+      "type": "STRING",
+      "description": "",
+      "fields": []
+    },
+    {
+      "name": "address",
+      "mode": "",
+      "type": "STRING",
+      "description": "",
+      "fields": []
+    },
+    {
+      "name": "phone",
+      "mode": "",
+      "type": "STRING",
+      "description": "",
+      "fields": []
+    },
+    {
+      "name": "created_at",
+      "mode": "",
+      "type": "DATE",
+      "description": "",
+      "fields": []
+    },
+    {
+      "name": "updated_at",
+      "mode": "",
+      "type": "DATE",
+      "description": "",
+      "fields": []
+    }
+  ]
