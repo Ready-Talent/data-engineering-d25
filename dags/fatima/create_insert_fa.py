@@ -18,7 +18,7 @@ with DAG(
 
 
         # Get the current working directory
-        current_file_path = os.path,abspath(__file__)
+        current_file_path = os.path.abspath(__file__)
         parent_directory = os.path.dirname(current_file_path)
 
         # Join the current directory with a filename to create a full path
