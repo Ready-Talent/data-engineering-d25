@@ -44,4 +44,3 @@ load_csv = GCSToBigQueryOperator(
 postgres_to_gcs >> load_csv
 
 
-##
