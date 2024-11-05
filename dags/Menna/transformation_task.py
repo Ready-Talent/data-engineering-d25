@@ -1,5 +1,7 @@
 from airflow import DAG
 from airflow.contrib.operators.bigquery_operator import BigQueryCreateEmptyTableOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryInsertJobOperator
+
 import json
 from pathlib import Path
 import os
@@ -12,7 +14,7 @@ with open(schema_file_path) as schema_file:
     schema_fields = json.load(schema_file)
 
 
-table_id = 'customers'
+table_id = 'customers_menna'
 project_id = 'ready-de-25'
 dataset_id = 'airflow_star_schema'
 
@@ -39,4 +41,19 @@ CreateTable = BigQueryCreateEmptyTableOperator(
 )
 
 
- 
+sql_query = """
+INSERT ready-de-25.airflow_star_schema.customers_menna (customer_id,name,email,address,phone)
+SELECT customer_id,name,email,address,phone
+FROM ready-de-25.ecommerce.customers
+"""
+
+insert_job = BigQueryInsertJobOperator(
+    task_id='insert_customer_table_menna',
+    configuration={
+        "query": {
+            "query": sql_query,
+            "useLegacySql": False
+        }
+    },
+    dag =  dag1
+)
