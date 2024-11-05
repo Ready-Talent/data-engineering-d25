@@ -18,7 +18,7 @@ dag1 = DAG(
     schedule_interval=None
 )
 
-json_file_path = Path(__file__).parent / 'D:/Users/amira.hussein/Downloads/data-engineering-d25/dags/amira/schema.json'  
+json_file_path = Path(__file__).parent / 'schema.json'  
 
 with open(json_file_path) as f:
     schema_fields = json.load(f)
