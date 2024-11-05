@@ -44,9 +44,6 @@ with DAG(
             SELECT * FROM `ready-de-25.ecommerce.customers`
         """,
         destination_dataset_table='ready-de-25.airflow_star_schema.dim_customer_fatima',
-        configuration=bigquery.LoadJobConfig(
-        source_format=bigquery.SourceFormat.CSV
-        )
     )
 
     create_table_task >> insert_data_task
