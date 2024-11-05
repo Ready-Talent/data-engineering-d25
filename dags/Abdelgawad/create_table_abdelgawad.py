@@ -40,11 +40,13 @@ load_data = BigQueryInsertJobOperator(
     configuration={
         "query": {
             "query": """
-                INSERT INTO `ready-de-25.airflow_star_schema.dim_customer_abdelgawad`
-                SELECT * FROM `ready-de-25.ecommerce.customers`
+                INSERT INTO `ready-de-25.airflow_star_schema.dim_customer_abdelgawad` 
+                (customer_id, name, email, address, phone, created_at_timestamp, updated_at_timestamp)
+                SELECT customer_id, name, email, address, phone, created_at_timestamp, updated_at_timestamp
+                FROM `ready-de-25.ecommerce.customers`
             """,
-            "useLegacySql": False,
-            "writeDisposition": "WRITE_APPEND",
+            "useLegacySql": False, 
+            "writeDisposition": "WRITE_APPEND",  
         }
     },
     dag=dag,
