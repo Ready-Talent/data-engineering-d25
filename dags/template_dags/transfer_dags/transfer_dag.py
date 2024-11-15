@@ -20,9 +20,9 @@ start = EmptyOperator(task_id="start", dag=dag)
 
 end = EmptyOperator(task_id="end", dag=dag)
 
-GCS_BUCKET = "ready-d25-postgres-to-gcs"
+GCS_BUCKET = "postgres-to-gcs"
 
-tables = ["products", "customers", "orders"]
+tables = ["product", "customer", "order"]
 
 for table in tables:
 
@@ -30,9 +30,11 @@ for table in tables:
         task_id=f"postgres_to_gcs_{table}",
         postgres_conn_id="postgres_connection",
         bucket=GCS_BUCKET,
-        sql=f"SELECT * FROM public.{table}",
+        sql=f"SELECT * FROM src01.{table}",
         filename=f"omar_thabet/{table}.csv",
         export_format="csv",
+        gzip=False,
+        use_server_side_cursor=False,
     )
 
     gcs_to_bq = GCSToBigQueryOperator(
@@ -48,6 +50,7 @@ for table in tables:
         field_delimiter=",",
         dag=dag,
         skip_leading_rows=1,
+        max_bad_records=1000000,
     )
     start >> postgres_to_gcs >> gcs_to_bq >> end
 
