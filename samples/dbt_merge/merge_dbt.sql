@@ -3,11 +3,8 @@
     unique_key='id'
 ) }}
 
-SELECT
-    id,
-    column1,
-    column2
-FROM {{ ref('staging_table') }}
+SELECT *
+FROM project_id.dataset.table_name
 
 {% if is_incremental() %}
 WHERE updated_at > (SELECT MAX(updated_at) FROM {{ this }})
