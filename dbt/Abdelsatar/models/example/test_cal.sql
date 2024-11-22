@@ -1,0 +1,1 @@
+SELECT {{cal_tax('amount')}} AS Tax from {{ref ('Dim_Pay_Satar')}} 
