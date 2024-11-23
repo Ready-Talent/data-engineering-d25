@@ -40,3 +40,8 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
+    chicago_taxi_trips:
+      +materialized: table
+    chicago_taxi_trips_vies:
+      +materialized: tab
+
