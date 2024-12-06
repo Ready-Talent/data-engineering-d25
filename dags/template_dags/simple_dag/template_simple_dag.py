@@ -34,7 +34,7 @@ def print_three(date):
 
 execution_date = "{{execution_dates}}"
 
-task_number_one = PythonOperator(task_id="task_1", python_callable=print_one, dag=dag)
+task_number_one = PythonOperator(task_id="task_1", python_callable=print_one, dag=dag1)
 
 task_number_two = PythonOperator(
     task_id="task_2", python_callable=print_two, op_kwargs={"x": 1, "y": 2}, dag=dag
