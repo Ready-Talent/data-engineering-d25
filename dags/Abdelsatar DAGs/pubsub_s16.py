@@ -59,6 +59,7 @@ with DAG(
     default_args=default_args,
     description='A DAG that pulls messages from a Pub/Sub topic and prints them',
     schedule_interval=None,  # This DAG runs manually
+    start_date=datetime(2024, 12, 7),
     catchup=False,
 ) as dag:
 
