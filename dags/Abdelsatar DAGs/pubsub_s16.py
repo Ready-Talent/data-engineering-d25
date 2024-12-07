@@ -66,6 +66,7 @@ with DAG(
     wait_for_message = PubSubPullSensor(
         task_id='wait_for_message',
         subscription=subscription_path,
+        project_id=project_id,
         timeout=60,  # Timeout in seconds
         mode='poke',  # Polling mode
     )
