@@ -1,0 +1,23 @@
+
+unique_key		INTEGER	
+case_number		STRING	
+date		TIMESTAMP	
+block		STRING	
+iucr		STRING	
+primary_type		STRING	
+description		STRING	
+location_description		STRING	
+arrest		BOOLEAN	
+domestic		BOOLEAN	
+beat		INTEGER	
+district		INTEGER	
+ward		INTEGER	
+community_area		INTEGER	
+fbi_code		STRING	
+x_coordinate		FLOAT	
+y_coordinate		FLOAT	
+year		INTEGER	
+updated_on		TIMESTAMP	
+latitude		FLOAT	
+longitude		FLOAT	
+location		STRING	
