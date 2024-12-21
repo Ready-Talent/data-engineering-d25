@@ -16,13 +16,13 @@ topic_id = "ecommerce-events"
 topic_path = publisher.topic_path(project_id, topic_id)
 
 messages = [
-    {"event": "order_placed", "order_id": 123, "amount": 50},
-    {"event": "order_shipped", "order_id": 123, "tracking_id": "XYZ"},
+    {"event": "order_placed", "order_id": 1, "amount": 50},
+    {"event": "order_shipped", "order_id": 2, "amount": 100},
 ]
-
-for message in messages:
-    print("message is", message)
-    job = publisher.publish(topic_path, json.dumps(message).encode("utf-8"))
-    print(job)
-    job.result()
-    print(f"Published: {message}")
+while True:
+    for message in messages:
+        print("message is", message)
+        job = publisher.publish(topic_path, json.dumps(message).encode("utf-8"))
+        print(job)
+        job.result()
+        print(f"Published: {message}")
