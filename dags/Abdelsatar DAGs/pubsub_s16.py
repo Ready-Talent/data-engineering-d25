@@ -9,9 +9,6 @@ import json
 import os
 from datetime import datetime, timedelta
 
-# Set the path to your service account key file for authentication
-#os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\SWE_m\OneDrive\Desktop\pub-sub\ready-de-25-f50d96fb2977.json"
-
 # Configuration
 project_id = "ready-de-25"
 subscription_id = "ecommerce-events-sub"
