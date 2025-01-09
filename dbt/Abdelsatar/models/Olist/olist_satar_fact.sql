@@ -1,12 +1,12 @@
 {{ config(materialized='table') }}
- 
+
 SELECT
     o.order_id,                         
     o.customer_id,                      
     oi.product_id,                      
     pc.product_category_name AS category_name,  
     p.payment_type,                     
-    DATE_TRUNC('month', o.order_purchase_timestamp) AS order_month,  
+    DATE_TRUNC(DATE(CAST(o.order_purchase_timestamp AS TIMESTAMP)), MONTH) AS order_month,  
     COUNT(o.order_id) OVER (PARTITION BY o.customer_id) AS total_orders_per_customer,  
     SUM(oi.price) AS total_order_value, 
     SUM(oi.freight_value) AS total_freight_value, 
@@ -21,4 +21,4 @@ JOIN
 JOIN 
     `ready-de-25.olist_abdelsatar.products` pc ON oi.product_id = pc.product_id
 GROUP BY 
-    o.order_id, o.customer_id, oi.product_id, category_name, p.payment_type, order_month
+    o.order_id, o.customer_id, oi.product_id, category_name, p.payment_type, order_month 
