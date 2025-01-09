@@ -4,4 +4,4 @@
 ) }}
 
 select *
-from ready-de-25.ecommerce.customers
+from ready-de-25.ecommerce.products
